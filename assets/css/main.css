@@ -1,0 +1,18 @@
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media (min-width: 512px)
+{
+    .closebtn
+    {
+        display: none;
+    }
+}
+body{
+	font-family: "Muli","Helvetica","Arial",sans-serif !important;
+}
