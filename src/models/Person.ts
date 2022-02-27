@@ -47,10 +47,8 @@ export default class Person {
             [this.name, this.last_name, this.age, this.phone, this.gender, this.id])
     }
 
-    static async saveMultiplesPerson(data: any){
+    static async saveMultiplesPerson(persons: any){
         
-        const { persons } = JSON.parse(data)
-
         persons.map((e: any) => {
             const p = new Person(e.name, e.last_name, e.age, e.phone, e.gender)
              p.create()

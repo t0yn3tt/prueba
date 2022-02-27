@@ -1,4 +1,4 @@
-import mysql from 'mysql2' 
+import mysql from 'mysql2'
 
 const pool = mysql.createPool({
     host: '162.241.61.79',
@@ -6,6 +6,7 @@ const pool = mysql.createPool({
     database: 'campoesp_db_prueba',
     password: '12345'
 })
+
 
 const db = pool.promise()
 

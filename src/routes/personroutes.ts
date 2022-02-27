@@ -2,8 +2,6 @@ import { Router } from 'express'
 
 import { getPersons, createPerson, getPerson, deletePerson, editPerson, uploadController } from '../controllers/personcontroller'
 
-import  uploadFile  from '../util/uploadFile'
-
 const router = Router()
 
 /**
@@ -108,7 +106,7 @@ const router = Router()
  *              
  */
 
- router.post('/upload', uploadFile.single('file'), uploadController)
+ router.post('/upload', uploadController)
 
 /**
  * @swagger

@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
+import upload from 'express-fileupload'
 
 //Swagger Imports
 import swaggerUI from 'swagger-ui-express'
@@ -16,9 +17,8 @@ app.set('port', process.env.PORT || 3000)
 
 app.use(cors())
 app.use(morgan('dev'))
+app.use(upload())
 app.use(bodyParser.json())
-
-//app.use(express.json())
 
 const specs = swaggerJSDoc(options)
 
