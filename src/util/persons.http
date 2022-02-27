@@ -1,0 +1,34 @@
+
+###Get all persons from database
+GET  http://localhost:3000/persons
+
+###Insert a person to te database
+POST http://localhost:3000/persons
+Content-Type: application/json
+
+{
+    "name": "Edgardo",
+    "last_name": "Martinez",
+    "age": 28,
+    "phone": "123349823423",
+    "gender": "male"
+}
+
+###Get One Person
+GET http://localhost:3000/persons/6mcoCdc8YcdRXxBbVJ4EX
+
+###Delete the Person
+DELETE http://localhost:3000/persons/gtP6ZhRBjaaXFC3Tjd9F6
+
+###Edit the person
+PUT http://localhost:3000/persons/m-P3zdSHjew8TVtvEkelF
+Content-Type: application/json
+
+{
+    "id": "m-P3zdSHjew8TVtvEkelF",
+    "name": "Edgardo",
+    "last_name": "Martinez",
+    "age": 18,
+    "phone": "245345",
+    "gender": "male"
+}
