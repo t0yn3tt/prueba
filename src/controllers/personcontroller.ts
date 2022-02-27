@@ -79,11 +79,7 @@ export const uploadController: Handler = async (req: any, res) => {
         const filename = req.file.filename
         const url = path.resolve(__dirname, "../temp/"+filename)
 
-        res.send({ msg: url})
-
-        let full_data = fs.readFileSync(url, 'utf8')
-
-        //console.log(full_data)
+        const full_data = await fs.readFileSync(url, 'utf8')
 
         if(full_data){
             await Person.saveMultiplesPerson(full_data)
