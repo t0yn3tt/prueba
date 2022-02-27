@@ -96,8 +96,8 @@ export const uploadController: Handler = async (req: any, res) => {
                 if(!err)
                     console.log('JSON temp file deleted')
             })
-            */
-        }
+            
+        }*/
         
         
 }
