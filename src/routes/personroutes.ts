@@ -69,6 +69,49 @@ const router = Router()
 
 /**
  * @swagger
+ * /upload:
+ *  post:
+ *      sumary: Upload a json file
+ *      tags: [Persons]
+ *      requestBody:
+ *          required: true
+ *          content: 
+ *              multipart/form-data:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          file:
+ *                              type: file
+ *      responses:
+ *          200:
+ *              description: Upload Succesffully
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              msg:          
+ *                              type: string
+ *                          example:
+ *                              msg: Upload Succesffully
+ *          400:
+ *              description: Please upload an json file!
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              msg:          
+ *                              type: string
+ *                          example:
+ *                              msg: Please upload an json file!
+ *              
+ */
+
+ router.post('/upload', uploadFile.single('file'), uploadController)
+
+/**
+ * @swagger
  * /persons:
  *      get:
  *          summary: Return a Person List
@@ -217,48 +260,5 @@ router.delete('/persons/:id', deletePerson)
  */
 
 router.put('/persons/:id', editPerson)
-
-/**
- * @swagger
- * /upload:
- *  post:
- *      sumary: Upload a json file
- *      tags: [Persons]
- *      requestBody:
- *          required: true
- *          content: 
- *              multipart/form-data:
- *                  schema:
- *                      type: object
- *                      properties:
- *                          file:
- *                              type: file
- *      responses:
- *          200:
- *              description: Upload Succesffully
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              msg:          
- *                              type: string
- *                          example:
- *                              msg: Upload Succesffully
- *          400:
- *              description: Please upload an json file!
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              msg:          
- *                              type: string
- *                          example:
- *                              msg: Please upload an json file!
- *              
- */
-
-router.post('/upload', uploadFile.single('file'), uploadController)
 
 export default router
