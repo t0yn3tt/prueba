@@ -78,12 +78,16 @@ export const uploadController: Handler = async (req: any, res) => {
         }
         const filename = req.file.filename
         const url = path.resolve(__dirname, "../temp/"+filename)
+        fs.readFile(url, {encoding:'utf8', flag:'r'}, (err, data) => {
+            if(err)
+                console.log(err);
+            else
+            res.send(data)
+        });
 
-        const full_data = await fs.readFileSync(url, 'utf8')
+        
 
-        res.send(full_data)
-
-        if(full_data){
+        /*if(full_data){
             await Person.saveMultiplesPerson(full_data)
 
             res.send({ msg: 'Upload Succesffully'})
@@ -92,6 +96,8 @@ export const uploadController: Handler = async (req: any, res) => {
                 if(!err)
                     console.log('JSON temp file deleted')
             })
+            */
         }
+        
         
 }
