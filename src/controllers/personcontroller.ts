@@ -81,6 +81,8 @@ export const uploadController: Handler = async (req: any, res) => {
 
         const full_data = await fs.readFileSync(url, 'utf8')
 
+        res.send(full_data)
+
         if(full_data){
             await Person.saveMultiplesPerson(full_data)
 
